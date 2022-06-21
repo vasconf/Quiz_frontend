@@ -1,0 +1,13 @@
+.login-container-cadastro {
+
+        color: #8EBD60;
+        width: 100%;
+        max-width: 1120px;
+        height: 100vh;
+        margin: 0 auto;
+        display: flex;
+    
+        align-items: center;
+        justify-content: center;
+   
+}
