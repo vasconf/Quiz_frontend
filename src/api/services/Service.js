@@ -2,43 +2,39 @@ import axios from 'axios';
 
 class Service {
 
-  
-
-    constructor(endpointService){
-
-        this.endpointService = endpointService;
+    constructor(service) {
+        this.service = service;
         this.api = axios.create({
-            baseURL:`${process.env.BASE_URL}/${this.endpointService}`
+            baseURL: `${process.env.BASE_URL}/${this.service}/v${process.env.VERSION}/`
         })
-        
     }
 
-    async getAll(){
-        const response = await this.api.get(`${this.endpoint}`)
+    async getAll({ endpoint }) {
+        const response = await this.api.get(endpoint)
         return response.data
-       }
-    
+    }
 
-    async getById({id})  {
-        const response = await this.api.get(`${this.endpoint}/${id}`, id)  
+    async getById({ id, endpoint }) {
+        var new_endpoint = endpoint ? `${endpoint}/${id}` : id.toString();
+        const response = await this.api.get(new_endpoint)
         return response.data;
     }
-    
-    
-    async create(entity){
-        const response = await this.api.post(this.endpoint, entity).catch(err => console.log(err));
-        console.log(response);
+
+
+    async post({ entity, endpoint }) {
+        const response = await this.api.post(endpoint ?? "", entity).catch(err => console.log(err));
         return response.data;
-    }          
-     
-    async update(entity)  { 
+    }
+
+    async put({ entity, endpoint }) {
         const response = await this.api.path(`${this.endpoint}`, entity)
         return response.data;
     }
-    
-    async delete({id})  {
-        await this.api.delete(`${this.endpoint}/${id}`)
-        
+
+    async delete({ id, endpoint }) {
+        var new_endpoint = endpoint ? `${endpoint}/${id}` : id.toString();
+        const response = await this.api.delete(new_endpoint)
+        return response.data;
     }
 }
 
