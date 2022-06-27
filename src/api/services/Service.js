@@ -5,7 +5,7 @@ class Service {
     constructor(service) {
         this.service = service;
         this.api = axios.create({
-            baseURL: `${process.env.BASE_URL}/${this.service}/v${process.env.VERSION}/`
+            baseURL: `${process.env.REACT_API_BASE_URL}/${this.service}/v${process.env.REACT_API_VERSION}/`
         })
     }
 

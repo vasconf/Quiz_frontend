@@ -1,12 +1,8 @@
-import Service from "../Service";
+import Service from "./Service";
 
-class QuizzService extends Service {
+export default class QuizService extends Service {
    constructor(){
-
-   }
-   super(){
-    this.endpoint = ""
-   }
-
-  
+      super("quiz");
+     
+   } 
 }

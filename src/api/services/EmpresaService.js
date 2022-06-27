@@ -1,12 +1,10 @@
-import Service from "../Service";
+import Service from "./Service";
 
-class EmpresaService extends Service {
+export default class EmpresaService extends Service {
    constructor(){
+      super("Empresa")
+   }
 
-   }
-   super(){
-    this.endpoint = ""
-   }
 
   
 }

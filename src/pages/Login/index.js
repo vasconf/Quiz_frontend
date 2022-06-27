@@ -5,7 +5,7 @@ import './login.css';
 
 import conexoes from '../../assets/conexoes.jpg'
 import AuthService from '../../api/services/AuthService';
-import LoginModel from '../../api/entities/loginModel';
+import LoginModel from '../../api/entities/LoginModel';
 
 export default function Login() {
 
@@ -18,13 +18,13 @@ export default function Login() {
 
       try {
          const _authService = new AuthService();
-         const response = await _authService.post({ endpoint: "", entity: JSON.stringify(loginState) });
+         const response = await _authService.post({ endpoint: "Auth", entity: JSON.stringify(loginState) });
 
          localStorage.setItem('userName', loginState.username);
          localStorage.setItem('acessToken', response.data.acessToken);
          localStorage.setItem('refreshToken', response.data.refreshToken);
 
-         navigate('/');
+         navigate('/Quiz');
 
       } catch (error) {
          alert('login failed try again!');

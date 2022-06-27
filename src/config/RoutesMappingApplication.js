@@ -1,5 +1,5 @@
 import Login from "../pages/Login"
-import Quizz from "../pages/Quizz"
+import Quiz from "../pages/Quiz"
 import Cadastro from "../pages/Cadastro"
 
 export const RoutesMappingApplication = [
@@ -8,8 +8,8 @@ export const RoutesMappingApplication = [
         path: "/"
     },
     {
-        page: <Quizz/>,
-        path: "/Quizz"
+        page: <Quiz/>,
+        path: "/Quiz"
     },
     {
         page: <Cadastro/>,
